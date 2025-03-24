@@ -1,15 +1,20 @@
 #include<stdio.h>
+//function prototype
 float t_area(float width,float height);
 float r_area(float width,float height);
 float s_area(float side);
 float c_area(float r);
 int main(){
+
+//take inputs
     char option;
     printf("Enter a to find area of triangle\n");
     printf("Enter b to find area of rectangle\n");
     printf("Enter c to find area of square\n");
     printf("Enter d to find area of circle\n");
     scanf("%c", &option);
+
+//function call and take other inputs
     
     switch (option)
     {
