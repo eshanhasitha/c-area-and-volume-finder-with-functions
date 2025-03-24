@@ -4,10 +4,11 @@ float t_area(float width,float height);
 float r_area(float width,float height);
 float s_area(float side);
 float c_area(float r);
-float cube_area(float side);
-float cuboid_area(float length,float width,float height);
-float cone_area(float r,float h);
-float cylinder_area(float r,float h);
+float cube_vol(float side);
+float cuboid_vol(float length,float width,float height);
+float cone_vol(float r,float h);
+float cylinder_vol(float r,float h);
+float sphere_vol(float r);
 int main(){
 
 //take inputs
@@ -19,10 +20,14 @@ int main(){
     printf("Enter d to find area of circle\n");
     printf("\n");
     printf("_____volume_____\n");
-    printf("Enter e to find area of cube\n");
-    printf("Enter f to find area of cuboid\n");
-    printf("Enter g to find area of cone\n");
-    printf("Enter h to find area of cylinder\n");
+    printf("Enter e to find volume of cube\n");
+    printf("Enter f to find volume of cuboid\n");
+    printf("Enter g to find volume of cone\n");
+    printf("Enter h to find volume of cylinder\n");
+    printf("Enter l to find volume of sphere\n");
+    printf("Enter m to find volume of hemisphere\n");
+    printf("Enter n to find volume of pyramid \n");
+    printf("Enter o to find volume of prism\n");
 
     
     scanf("%c", &option);
@@ -66,7 +71,7 @@ int main(){
     case 'e':
         printf("enter the side of cube: ");
         scanf("%f",&side);
-        printf("volume of cube is: %f",cube_area(side));
+        printf("volume of cube is: %f",cube_vol(side));
         break;
     case 'f':
         float length;
@@ -76,23 +81,51 @@ int main(){
         scanf("%f",&width);
         printf("enter the height of cuboid: ");
         scanf("%f",&height);
-        printf("volume of cuboid is: %f",cuboid_area(length,width,height));
+        printf("volume of cuboid is: %f",cuboid_vol(length,width,height));
         break; 
     case 'g':
         printf("enter the r of cone: ");
         scanf("%f",&r);
         printf("enter the h of cone: ");
         scanf("%f",&height);
-        printf("volume of cone is: %f",cone_area(r,height));
+        printf("volume of cone is: %f",cone_vol(r,height));
         break;
     case 'h':
         printf("enter the r of cylinder: ");
         scanf("%f",&r);
         printf("enter the h of cylinder: ");
         scanf("%f",&height);
-        printf("volume of cylinder is: %f",cylinder_area(r,height));
+        printf("volume of cylinder is: %f",cylinder_vol(r,height));
         break;
-           
+    case 'l':
+        printf("enter the r of sphere: ");
+        scanf("%f",&r);
+        printf("volume of sphere is: %f",sphere_vol(r));
+        break;
+    case 'm':
+        printf("enter the r of hemisphere: ");
+        scanf("%f",&r);
+        printf("volume of hemisphere is: %f",hemisphere_vol(r));
+        break;
+    case 'n':
+        printf("enter the l of pyramid: ");
+        scanf("%f",&length);
+        printf("enter the w of pyramid: ");
+        scanf("%f",&width);
+        printf("enter the h of pyramid: ");
+        scanf("%f",&height);
+        printf("volume of pyramid is: %f",pyramid_vol(length,width,height));
+        break;
+    case 'o':
+        printf("enter the l of prism: ");
+        scanf("%f",&length);
+        printf("enter the w of prism: ");
+        scanf("%f",&width);
+        printf("enter the h of prism: ");
+        scanf("%f",&height);
+        printf("volume of prism is: %f",prism_vol(length,width,height));
+        break;
+               
 
     default:
         printf("invalid input");
@@ -125,24 +158,46 @@ float c_area(float r){
     return result;
 }
 //function for calculate volume of cube
-float cube_area(float side){
+float cube_vol(float side){
     float result=side*side*side;
     return result;
 }
 //function for calculate volume of cuboid
-float cuboid_area(float length,float width,float height){
+float cuboid_vol(float length,float width,float height){
     float result=length*width*height;
     return result;
 }
 //function for calculate volume of cone
-float cone_area(float r,float h){
+float cone_vol(float r,float h){
     float pi=3.14;
     float result=(pi*r*r*h)/3;
     return result;
 }
 //function for calculate volume of cylinder
-float cylinder_area(float r,float h){
+float cylinder_vol(float r,float h){
     float pi=3.14;
     float result=pi*r*r*h;
+    return result;
+}
+//function for calculate volume of sphere
+float sphere_vol(float r){
+    float pi=3.14;
+    float result=(4*pi*r*r*r)/3;
+    return result;
+}
+//function for calculate volume of hemisphere
+float hemisphere_vol(float r){
+    float pi=3.14;
+    float result=(2*pi*r*r*r)/3;
+    return result;
+}
+//function for calculate volume of pyramid
+float pyramid_vol(float l,float w,float h){
+    float result=(l*w*h)/3;
+    return result;
+}
+//function for calculate volume of prism
+float prism_vol(float l,float w,float h){
+    float result=l*w*h;
     return result;
 }
